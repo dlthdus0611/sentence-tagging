@@ -1,0 +1,60 @@
+{
+  "data": {
+    "data_dir": "../data/",
+    "label_desc_file": "label_desc.csv",
+    "prob_json": "hierar/hierar_prob.json",
+    "hierarchy": "hierar/hierar.txt",
+    "sample_num": 2,
+    "positive_num": 1,
+    "negative_ratio": 3,
+    "kfold":5
+  },
+  "embedding": {
+    "token": {
+      "dimension": 300
+    },
+    "label": {
+      "dimension": 768
+    }
+  },
+  "text_encoder": {
+    "max_length": 300
+  },
+  "structure_encoder": {
+    "node": {
+      "dimension": 300,
+      "dropout": 0.05
+    }
+  },
+  "matching_net": {
+    "dimension": 200,
+    "dropout": 0.1,
+    "output_relu": 0,
+    "output_dropout": 0,
+    "l2_norm": 1
+  },
+  "model": {
+    "model_dir": "models/pretrained_model/",
+    "linear_transformation": {
+      "text_dimension": 768,
+      "node_dimension": 300,
+      "dropout": 0.1
+    },
+    "classifier": {
+      "output_drop": 0,
+      "dropout": 0.5
+    }
+  },
+  "train": {
+    "seed": 42,
+    "epoch":7,
+    "batch_size": 16,
+    "early_stopping": 3,
+    "embd_f":30,
+    "optimizer":{
+      "weight_decay":1e-2,
+      "initial_lr":2e-5
+   }
+  },
+  "save_path": "results/"
+}

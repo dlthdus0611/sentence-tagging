@@ -1,0 +1,13 @@
+# 데이터
+*.txt
+*.pickle
+*.dict
+data/*.json
+
+# 모델
+*.pth
+*.bin
+
+# etc
+*.ipynb
+
