@@ -1,12 +1,17 @@
-# 국내 논문 문장 의미 태깅 모델 개발
+# Development of domestic thesis sentence semantic tagging model
 
 ### Overview
-- 주어진 논문 문장의 수사학적 카테고리를 예측하여 국내 논문 문장 의미 태깅 자동화를 하고자 함. 
-- 수사학적 카테고리를 위해 계층적 임베딩 구조, 다중 손실 함수를 사용함.
-### Framework
-![framework](./img/framework.PNG)
+- To automate the meaning tagging of the domestic thesis sentence by predicting the rhetorical category of a thesis sentence.
+- Hierarchical embedding structure and multiple loss functions are used to represent the meaning of rhetorical categories.
 
-### Results
+### Framework & Training Scheme
+The overall architecture of the proposed method is as below:
+
+<img src='./img/framework.PNG' width='430' height='350'>
+
+The training mechanism of the proposed method is as below:
+
+<img src='./img/training_scheme.PNG' width='600' height='350'>
 
 ### Training Environment
 - python 3.7
@@ -53,27 +58,6 @@
 │    │    ├── hierarchy_tree_stastistic.py
 │    │    ├── train_modules.py
 │    │    └── utils.py
-│    │   
-│    ├── results
-│    │    ├── model_0fold
-│    │    │    ├── best_model.pth
-│    │    │    └── log.log
-│    │    │ 
-│    │    ├── model_1fold
-│    │    │    ├── best_model.pth
-│    │    │    └── log.log
-│    │    │ 
-│    │    ├── model_2fold
-│    │    │    ├── best_model.pth
-│    │    │    └── log.log
-│    │    │ 
-│    │    ├── model_3fold
-│    │    │    ├── best_model.pth
-│    │    │    └── log.log
-│    │    │ 
-│    │    └── model_4fold
-│    │         ├── best_model.pth
-│    │         └── log.log
 │    │  
 │    ├── construct_label_desc.py
 │    ├── config.json
@@ -86,11 +70,6 @@
 └── README.md
 ```
 
-### Model
-- CrossValidation을 진행했으므로 총 5개의 checkpoint가 results 디렉토리에 존재
-- model_0fold 의 경우, 0fold를 validation dataset으로 사용한 것임. 
-- 사용코드는 src 디렉토리에 저장
-
 ### How to Use
 
 1. Create Environment & Import Library
@@ -99,27 +78,31 @@
     conda activate sen_cls
     pip install torch==1.8.0+cu111  -f https://download.pytorch.org/whl/torch_stable.html
     ```
+
 2. Training
    ```
    python main.py --do_train=True --exp_num='exp' --fold=0
    ```
+
 3. Test
    ```
-   python main.py --do_test=True --exp_num='model_0fold' --fold=0  
-   python main.py --do_test=True --exp_num='model_1fold' --fold=1  
-   python main.py --do_test=True --exp_num='model_2fold' --fold=2  
-   python main.py --do_test=True --exp_num='model_3fold' --fold=3  
-   python main.py --do_test=True --exp_num='model_4fold' --fold=4  
+   python main.py --do_test=True --exp_num='model_0fold' --fold=0 
    ```
+
 4. Predict
    ```
    python main.py --do_predict=True --exp_num='model_0fold' --fold=0  
    ```
 
 ### Arguments
-- `--config_path` : 사용할 모델 parameter config
-- `--exp_num` : 학습된 모델 저장 위치
-- `--do_train` : 모델 학습
-- `--do_test` : 모델 평가
-- `--do_predict` : 데모 실행
-- `--fold` : validation fold 설정 (5fold validation으로 0~4까지 존재)
+- `--config_path` : parameter config
+- `--exp_num` : location of trained model
+- `--do_train` : whether to execute the training phase
+- `--do_test` : whether to execute the testing phase
+- `--do_predict` : whether to execute the prediction
+- `--fold` : setting for validation fold
+
+### Results
+We provide visualizations of embedding space for test set. They are predicted by KorSciBERT and KorSciBERT with GCN and matching loss. This indicates that our proposed method can separate domestic thesis sentences according to their meanings.
+
+<img src='./img/results.PNG' width='500' height='250'>
