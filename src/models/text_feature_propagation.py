@@ -1,20 +1,5 @@
-'''
-@inproceedings{chen-etal-2021-hierarchy,
-    title = "Hierarchy-aware Label Semantics Matching Network for Hierarchical Text Classification",
-    author = "Chen, Haibin  and Ma, Qianli  and Lin, Zhenxi  and Yan, Jiangyue",
-    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
-    year = "2021",
-    url = "https://aclanthology.org/2021.acl-long.337",
-    pages = "4370--4379"
-} 
-'''
-
-import torch
-import numpy as np
-import os
 from torch import nn
 from models.matching_network import MatchingNet
-import torch.nn.functional as F
 
 class HiMatchTP(nn.Module):
     # korbert + gcn 을 통해 text를 임베딩하고 classifier를 통해 logits을 뽑음. 

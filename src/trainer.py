@@ -2,19 +2,15 @@ from models.model import HiMatch
 from utils.train_modules import AdamW, get_linear_schedule_with_warmup, get_cosine_schedule_with_warmup, ClassificationLoss, MarginRankingLoss
 from utils.utils import *
 from utils.evaluation_modules import evaluate_metric, AvgMeter
-from dataloader import data_loaders, ClassificationDataset
-from sklearn.model_selection import StratifiedKFold
 import models.pretrained_model.korscibert.tokenization_kisti as tokenization
 
 import os
 import tqdm
 import torch
-import random
 import pickle
 import numpy as np
 import pandas as pd
 from ptflops import get_model_complexity_info
-#for debug
 
 def input_constructor(input_res):
     input_ids = torch.ones(()).new_empty((1, input_res[0])).long().cuda()

@@ -1,14 +1,3 @@
-'''
-@inproceedings{chen-etal-2021-hierarchy,
-    title = "Hierarchy-aware Label Semantics Matching Network for Hierarchical Text Classification",
-    author = "Chen, Haibin  and Ma, Qianli  and Lin, Zhenxi  and Yan, Jiangyue",
-    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
-    year = "2021",
-    url = "https://aclanthology.org/2021.acl-long.337",
-    pages = "4370--4379"
-} 
-'''
-
 class Tree(object):
     def __init__(self, idx):
         self.idx = idx
