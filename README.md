@@ -1,8 +1,12 @@
 # 국내 논문 문장 의미 태깅 모델 개발
 
-### 개요
+### Overview
 - 주어진 논문 문장의 수사학적 카테고리를 예측하여 국내 논문 문장 의미 태깅 자동화를 하고자 함. 
 - 수사학적 카테고리를 위해 계층적 임베딩 구조, 다중 손실 함수를 사용함.
+### Framework
+![framework](./img/framework.PNG)
+
+### Results
 
 ### Training Environment
 - python 3.7
