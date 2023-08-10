@@ -7,11 +7,11 @@
 ### Framework & Training Scheme
 The overall architecture of the proposed method is as below:
 
-<img src='./img/framework.PNG' width='430' height='350'>
+<img src='./img/framework.PNG' width='440' height='350'>
 
 The training mechanism of the proposed method is as below:
 
-<img src='./img/training_scheme.PNG' width='600' height='350'>
+<img src='./img/training_scheme.PNG' width='630' height='350'>
 
 ### Training Environment
 - python 3.7
@@ -106,3 +106,15 @@ The training mechanism of the proposed method is as below:
 We provide visualizations of embedding space for test set. They are predicted by KorSciBERT and KorSciBERT with GCN and matching loss. This indicates that our proposed method can separate domestic thesis sentences according to their meanings.
 
 <img src='./img/results.PNG' width='500' height='250'>
+
+### References
+```
+@inproceedings{chen-etal-2021-hierarchy,
+    title = "Hierarchy-aware Label Semantics Matching Network for Hierarchical Text Classification",
+    author = "Chen, Haibin  and Ma, Qianli  and Lin, Zhenxi  and Yan, Jiangyue",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    year = "2021",
+    url = "https://aclanthology.org/2021.acl-long.337",
+    pages = "4370--4379"
+}
+```
